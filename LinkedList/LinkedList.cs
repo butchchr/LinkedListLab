@@ -104,7 +104,7 @@ namespace LinkedList
             Console.WriteLine();
         }
 
-        bool RemoveAt(int index)
+        public bool RemoveAt(int index)
         {
             Node<T> current = Head;
             Node<T> previous = null;
@@ -127,17 +127,38 @@ namespace LinkedList
             return true;
         }
 
-        bool InsertAt(int index, T value)
+        public bool InsertAt(int index, T value)
         {
+            Node<T> current = Head;
+            Node<T> previous = null;
+
             var newNode = new Node<T>()
             {
                 Value = value
             };
 
+            if (index < 0)
+            {
+                return false;
+            }
+
+            if (index == 0)
+            {
+                this.AddAtStart(value);
+                return true;
+            }
+
             for (int i = 0; i < index; i++)
             {
-                
+              if (current == null)
+              {
+                    
+              }
+                previous = current;
+                current = current.Next;
             }
+            previous.Next = current.Next;
+        }
             //Step 2: Change pointer from newNode-- (if there is one) to new node
             //Step 3: Assign pointer from newNode to the next node (if there is one)
         }
