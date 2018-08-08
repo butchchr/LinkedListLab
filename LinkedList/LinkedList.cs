@@ -104,6 +104,12 @@ namespace LinkedList
             Console.WriteLine();
         }
 
+        public void PrintReverse()
+        {
+            //AddAtStart(Head.Next);
+            PrintAllNodes();
+        }
+
         public bool RemoveAt(int index)
         {
             Node<T> current = Head;
@@ -144,23 +150,28 @@ namespace LinkedList
 
             if (index == 0)
             {
-                this.AddAtStart(value);
+                AddAtStart(value);
                 return true;
             }
 
             for (int i = 0; i < index; i++)
             {
-              if (current == null)
-              {
-                    
-              }
+                if (current == null)
+                {
+
+                }
                 previous = current;
                 current = current.Next;
             }
             previous.Next = current.Next;
+            if (current == Current)
+            {
+                Current = previous;
+            }
+            Count++;
+            return true;
         }
-            //Step 2: Change pointer from newNode-- (if there is one) to new node
-            //Step 3: Assign pointer from newNode to the next node (if there is one)
-        }
+        //Step 2: Change pointer from newNode-- (if there is one) to new node
+        //Step 3: Assign pointer from newNode to the next node (if there is one)
     }
 }
