@@ -54,8 +54,6 @@ namespace LinkedList
             Console.Write("NULL");
             Console.WriteLine();
         }
-
-
     }
 
     //Linked List using Generics
@@ -105,8 +103,52 @@ namespace LinkedList
             Console.Write("NULL");
             Console.WriteLine();
         }
-    }
 
-    
-    
+        bool RemoveAt(int index)
+        {
+            Node<T> current = Head;
+            Node<T> previous = null;
+            
+            for (int i = 0; i < index; i++)
+            {
+                if (current == null)
+                {
+                    return false;
+                }
+                previous = current;
+                current = current.Next;
+            }
+            previous.Next = current.Next;
+            if (current == Current)
+            {
+                Current = previous;
+            }
+            --Count;
+            return true;
+        }
+
+        bool InsertAt(int index, T value)
+        {
+
+            Node<T> current = Head;
+            Node<T> previous = null;
+
+            for (int i = 0; i < index; i++)
+            {
+                if (current == null)
+                {
+                    return false;
+                }
+                previous = current;
+                current = current.Next;
+            }
+            previous.Next = current.Next;
+            if (current == Current)
+            {
+                Current = previous;
+            }
+            ++Count;
+            return true;
+        }
+    }
 }
