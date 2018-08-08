@@ -108,7 +108,7 @@ namespace LinkedList
         {
             Node<T> current = Head;
             Node<T> previous = null;
-            
+
             for (int i = 0; i < index; i++)
             {
                 if (current == null)
@@ -129,26 +129,17 @@ namespace LinkedList
 
         bool InsertAt(int index, T value)
         {
-
-            Node<T> current = Head;
-            Node<T> previous = null;
+            var newNode = new Node<T>()
+            {
+                Value = value
+            };
 
             for (int i = 0; i < index; i++)
             {
-                if (current == null)
-                {
-                    return false;
-                }
-                previous = current;
-                current = current.Next;
+                
             }
-            previous.Next = current.Next;
-            if (current == Current)
-            {
-                Current = previous;
-            }
-            ++Count;
-            return true;
+            //Step 2: Change pointer from newNode-- (if there is one) to new node
+            //Step 3: Assign pointer from newNode to the next node (if there is one)
         }
     }
 }
